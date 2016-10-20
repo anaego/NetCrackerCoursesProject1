@@ -1,0 +1,82 @@
+package main;
+
+import java.time.LocalDate;
+
+import airlineinfo.Flight;
+import airlineinfo.Order;
+import airlineinfo.Ticket;
+import clientinfo.Client;
+import clientinfo.Human;
+
+/**
+ * 
+ * @author Anastasia
+ */
+
+
+public class MainProgram {
+
+	public static void main(String[] args) {
+
+		Client client = new Client("Petr Petrov");
+		
+		client.setLuggageWeight(10);
+		client.setRegisterFirst(false);
+		
+		System.out.println("The client is " + client.getName() + " with " 
+				+ client.getLuggageWeight() 
+				+ " kgs of luggage and do they have first priority boarding? " 
+				+ client.getRegisterFirst());
+		
+		//LocalDate flightDate, int flightSeatsLeft, String plane
+		Flight flight = new Flight(LocalDate.of(2016, 10, 31), 15, "Boing blabla");
+		
+		System.out.println("The flight is on " + flight.getDate() + ", the plane is " 
+				+ flight.getPlane() + ", there are " + flight.getSeatsLeft() 
+				+ " seat left");
+		
+		//double basicPrice, Flight flight, int minimumSeats, LocalDate maximumDate, double luggagePrice,
+		//float registerFirstPrice, float seatsFactorPrice, float dateFactorPrice
+		Order order = new Order(10, flight, 5, LocalDate.of(2016, 10, 25), 2, 5, 3, 3);
+		
+		
+		Ticket ticket = new Ticket();
+		ticket = client.orderTicket(order, flight);
+		
+		client.payForTicket(ticket);
+		
+		//Object counter through static
+		System.out.println("");
+		Integer objCount = Flight.counter + Order.counter + Ticket.counter + Client.counter 
+				+ Human.counter;
+		System.out.println("The number of objects is - " + objCount.toString());
+
+
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+
+public class Ticket {
+	
+	private double price;
+	private Flight flight;
+	
+	//getters and setters
+	
+	public double getPrice()
+	{
+		return price;
+	}
+	
+	public void setPrice(double ticketPrice)
+	{
+		price=ticketPrice;
+	}
+	
+	public Flight getFlight()
+	{
+		return flight;
+	}
+	
+	public void setFlight(Flight ticketFlight)
+	{
+		flight=ticketFlight;
+	}
+	
+	//overridden methods
+	
+	
+
+}

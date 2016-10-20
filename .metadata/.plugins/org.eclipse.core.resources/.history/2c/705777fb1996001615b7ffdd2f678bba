@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_HOEooJYQEeavz_PMIqAnnw" name="LowCostAirline">
+    <eAnnotations xmi:id="_IgPbIJYQEeavz_PMIqAnnw" source="http://ns.yatta.de/umllab">
+      <contents xmi:type="ecore:EAnnotation" xmi:id="_IgQCMJYQEeavz_PMIqAnnw" source="codegen">
+        <details xmi:id="_IgQCMZYQEeavz_PMIqAnnw" key="codegenDirectory" value="/LowCostAirline/src"/>
+        <details xmi:id="_ONuiYJYQEeavz_PMIqAnnw" key="AssociatedSourceCode" value="/LowCostAirline/src/airlineinfo/Flight.java;3521646794/1;/LowCostAirline/src/airlineinfo/Order.java;1182661019/1;/LowCostAirline/src/airlineinfo/Ticket.java;484224007/1;/LowCostAirline/src/clientinfo/Human.java;770262112/1;/LowCostAirline/src/clientinfo/Client.java;3404584918/1;/LowCostAirline/src/main/MainProgram.java;1143952364/1;"/>
+        <details xmi:id="_8KLEEJYUEeaMiKPTtpaTQQ" key="codeGenerator" value="com.yattasolutions.codegen.oaw.codeGenerator"/>
+      </contents>
+    </eAnnotations>
+    <elementImport xmi:id="_LV8c8JYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_LV_gQJYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAHUJYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAHUZYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAHUpYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAHU5YQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAuYJYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_LWAuYZYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_LWB8gJYQEeavz_PMIqAnnw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LWKfYJYQEeavz_PMIqAnnw" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_LWLGcJYQEeavz_PMIqAnnw" name="time">
+        <packagedElement xmi:type="uml:Class" xmi:id="_L8-nwJYQEeavz_PMIqAnnw" name="LocalDate"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_L9eXAJYQEeavz_PMIqAnnw" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_L9eXAZYQEeavz_PMIqAnnw" name="Object"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LiJs8JYQEeavz_PMIqAnnw" name="airlineinfo">
+      <packagedElement xmi:type="uml:Class" xmi:id="_LmZTwJYQEeavz_PMIqAnnw" name="Flight">
+        <ownedComment xmi:id="_MFGB8JYQEeavz_PMIqAnnw">
+          <body>Class Flight represents a flight that the client can choose.&#xD;
+properties: date - flight date (and time), seatsLeft - how many &#xD;
+seats are left; &#xD;
+basicPrice - price for one ticket without any additions; &#xD;
+minimumSeats, maximumDate - factors that, too, affect the price; &#xD;
+luggagePrice - price for a kilogram of luggage; &#xD;
+registerFirstPrice - price for the first priority boarding right; &#xD;
+seatsFactorPrice, dateFactorPrice - coefficients for calculating &#xD;
+additional price ; &#xD;
+@author Anastasia</body>
+        </ownedComment>
+        <ownedAttribute xmi:id="_MBQq0JYQEeavz_PMIqAnnw" name="date" type="_L8-nwJYQEeavz_PMIqAnnw" association="_MFHQEJYQEeavz_PMIqAnnw"/>
+        <ownedAttribute xmi:id="_MBR48JYQEeavz_PMIqAnnw" name="plane">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBSgAJYQEeavz_PMIqAnnw" name="seatsLeft" isReadOnly="true">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MEzuEJYQEeavz_PMIqAnnw" name="Flight" specification="_L9ch0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME0VIJYQEeavz_PMIqAnnw" name="flightDate" type="_L8-nwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME0VIZYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_ME0VIpYQEeavz_PMIqAnnw" type="_LmZTwJYQEeavz_PMIqAnnw" direction="return"/>
+          <language>java</language>
+          <body>setDate(flightDate);&#xD;
+		setSeatsLeft(flightSeatsLeft);&#xD;
+		/*setBasicPrice(flightBasicPrice);&#xD;
+		&#xD;
+		setMinimumSeats(minimumSeats);&#xD;
+		setMaximumDate(minimalDate);&#xD;
+		&#xD;
+		setLuggagePrice(luggagePrice);&#xD;
+		setRegisterFirstPrice(registerFirstPrice);&#xD;
+		setSeatsFactorPrice(seatsFactorPrice);&#xD;
+		setDateFactorPrice(dateFactorPrice);*/&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME4mkJYQEeavz_PMIqAnnw" name="setSeatsLeft" specification="_Lmjr0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME4mkZYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (flightSeatsLeft>=0) {&#xD;
+			seatsLeft=flightSeatsLeft;&#xD;
+		}&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME5NoJYQEeavz_PMIqAnnw" name="hashCode" specification="_LmmvIJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME5NoZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final int prime = 31;&#xD;
+		int result = 1;&#xD;
+		result = prime * result + ((date == null) ? 0 : date.hashCode());&#xD;
+		result = prime * result + ((plane == null) ? 0 : plane.hashCode());&#xD;
+		result = prime * result + seatsLeft;&#xD;
+		return result;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME50sJYQEeavz_PMIqAnnw" name="equals" specification="_L9gzQZYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME50sZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME50spYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (this == obj)&#xD;
+			return true;&#xD;
+		if (obj == null)&#xD;
+			return false;&#xD;
+		if (getClass() != obj.getClass())&#xD;
+			return false;&#xD;
+		Flight other = (Flight) obj;&#xD;
+		if (date == null) {&#xD;
+			if (other.date != null)&#xD;
+				return false;&#xD;
+		} else if (!date.equals(other.date))&#xD;
+			return false;&#xD;
+		if (plane == null) {&#xD;
+			if (other.plane != null)&#xD;
+				return false;&#xD;
+		} else if (!plane.equals(other.plane))&#xD;
+			return false;&#xD;
+		if (seatsLeft != other.seatsLeft)&#xD;
+			return false;&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME50s5YQEeavz_PMIqAnnw" name="toString" specification="_LmrnoJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME50tJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return &quot;Flight [date=&quot; + date + &quot;, plane=&quot; + plane + &quot;, seatsLeft=&quot; + seatsLeft + &quot;]&quot;;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_Lmjr0JYQEeavz_PMIqAnnw" name="setSeatsLeft" method="_ME4mkJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lmjr0ZYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LmmvIJYQEeavz_PMIqAnnw" name="hashCode" method="_ME5NoJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_LmnWMJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LmrnoJYQEeavz_PMIqAnnw" name="toString" method="_ME50s5YQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lms1wJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9ch0JYQEeavz_PMIqAnnw" name="Flight" method="_MEzuEJYQEeavz_PMIqAnnw">
+          <eAnnotations xmi:id="_L9dI4pYQEeavz_PMIqAnnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_L9dI45YQEeavz_PMIqAnnw" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_L9dI5JYQEeavz_PMIqAnnw" type="_LmZTwJYQEeavz_PMIqAnnw" direction="return"/>
+          <ownedParameter xmi:id="_L9dI4JYQEeavz_PMIqAnnw" name="flightDate" type="_L8-nwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9dI4ZYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9gzQZYQEeavz_PMIqAnnw" name="equals" method="_ME50sJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_L9haUJYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9haUZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_LmzjcJYQEeavz_PMIqAnnw" name="Order">
+        <ownedAttribute xmi:id="_MBTuIJYQEeavz_PMIqAnnw" name="basicPrice">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBU8QJYQEeavz_PMIqAnnw" name="minimumSeats">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBU8QZYQEeavz_PMIqAnnw" name="maximumDate" type="_L8-nwJYQEeavz_PMIqAnnw" association="_MFNWsJYQEeavz_PMIqAnnw"/>
+        <ownedAttribute xmi:id="_MBVjUJYQEeavz_PMIqAnnw" name="luggagePrice">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBWKYJYQEeavz_PMIqAnnw" name="registerFirstPrice">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBWxcJYQEeavz_PMIqAnnw" name="seatsFactorPrice">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBXYgJYQEeavz_PMIqAnnw" name="dateFactorPrice">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME7C0JYQEeavz_PMIqAnnw" name="calculatePrice" specification="_L9IYwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME7C0ZYQEeavz_PMIqAnnw" name="flightInfo" type="_LmZTwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME7C0pYQEeavz_PMIqAnnw" name="luggageWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_ME7C05YQEeavz_PMIqAnnw" name="registerFirst">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_ME7C1JYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>double price = getBasicPrice();&#xD;
+		&#xD;
+		/*price = flightInfo.getBasicPrice() + luggageWeight * flightInfo.getLuggagePrice();&#xD;
+			&#xD;
+		if (registerFirst == true) {&#xD;
+			price=price + flightInfo.getBasicPrice() * flightInfo.getRegisterFirstPrice();&#xD;
+		}&#xD;
+			&#xD;
+		if (flightInfo.getSeatsLeft() &lt; flightInfo.getMinimumSeats()) {&#xD;
+			price=price + flightInfo.getBasicPrice() * flightInfo.getSeatsFactorPrice();&#xD;
+		}&#xD;
+			&#xD;
+			&#xD;
+		if ( flightInfo.getMaximumDate().isBefore( LocalDate.now() ) ) {			&#xD;
+			price=price+flightInfo.getBasicPrice() * flightInfo.getDateFactorPrice();&#xD;
+		}*/&#xD;
+		return price;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME7p4JYQEeavz_PMIqAnnw" name="hashCode" specification="_Lm304JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME7p4ZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final int prime = 31;&#xD;
+			int result = 1;&#xD;
+			long temp;&#xD;
+			temp = Double.doubleToLongBits(basicPrice);&#xD;
+			result = prime * result + (int) (temp ^ (temp >>> 32));&#xD;
+			result = prime * result + Float.floatToIntBits(dateFactorPrice);&#xD;
+			temp = Double.doubleToLongBits(luggagePrice);&#xD;
+			result = prime * result + (int) (temp ^ (temp >>> 32));&#xD;
+			result = prime * result + ((maximumDate == null) ? 0 : maximumDate.hashCode());&#xD;
+			result = prime * result + minimumSeats;&#xD;
+			result = prime * result + Float.floatToIntBits(registerFirstPrice);&#xD;
+			result = prime * result + Float.floatToIntBits(seatsFactorPrice);&#xD;
+			return result;&#xD;
+		</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME7p4pYQEeavz_PMIqAnnw" name="equals" specification="_L9lrwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME7p45YQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME7p5JYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (this == obj)&#xD;
+				return true;&#xD;
+			if (obj == null)&#xD;
+				return false;&#xD;
+			if (getClass() != obj.getClass())&#xD;
+				return false;&#xD;
+			Order other = (Order) obj;&#xD;
+			if (Double.doubleToLongBits(basicPrice) != Double.doubleToLongBits(other.basicPrice))&#xD;
+				return false;&#xD;
+			if (Float.floatToIntBits(dateFactorPrice) != Float.floatToIntBits(other.dateFactorPrice))&#xD;
+				return false;&#xD;
+			if (Double.doubleToLongBits(luggagePrice) != Double.doubleToLongBits(other.luggagePrice))&#xD;
+				return false;&#xD;
+			if (maximumDate == null) {&#xD;
+				if (other.maximumDate != null)&#xD;
+					return false;&#xD;
+			} else if (!maximumDate.equals(other.maximumDate))&#xD;
+				return false;&#xD;
+			if (minimumSeats != other.minimumSeats)&#xD;
+				return false;&#xD;
+			if (Float.floatToIntBits(registerFirstPrice) != Float.floatToIntBits(other.registerFirstPrice))&#xD;
+				return false;&#xD;
+			if (Float.floatToIntBits(seatsFactorPrice) != Float.floatToIntBits(other.seatsFactorPrice))&#xD;
+				return false;&#xD;
+			return true;&#xD;
+		</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME8Q8JYQEeavz_PMIqAnnw" name="toString" specification="_Lm64MJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME8Q8ZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return &quot;Order [basicPrice=&quot; + basicPrice + &quot;, minimumSeats=&quot; + minimumSeats + &quot;, maximumDate=&quot; + maximumDate&#xD;
+					+ &quot;, luggagePrice=&quot; + luggagePrice + &quot;, registerFirstPrice=&quot; + registerFirstPrice&#xD;
+					+ &quot;, seatsFactorPrice=&quot; + seatsFactorPrice + &quot;, dateFactorPrice=&quot; + dateFactorPrice + &quot;]&quot;;&#xD;
+		</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_Lm304JYQEeavz_PMIqAnnw" name="hashCode" method="_ME7p4JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lm5DAJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Lm64MJYQEeavz_PMIqAnnw" name="toString" method="_ME8Q8JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lm7fQJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9IYwJYQEeavz_PMIqAnnw" name="calculatePrice" method="_ME7C0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_L9IYwZYQEeavz_PMIqAnnw" name="flightInfo" type="_LmZTwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9IYwpYQEeavz_PMIqAnnw" name="luggageWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L9I_0JYQEeavz_PMIqAnnw" name="registerFirst">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L9I_0ZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9lrwJYQEeavz_PMIqAnnw" name="equals" method="_ME7p4pYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_L9lrwZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9mS0JYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Lvm6IJYQEeavz_PMIqAnnw" name="Ticket">
+        <ownedComment xmi:id="_MFOk0JYQEeavz_PMIqAnnw">
+          <body>Class Ticket - represents tickets for some flight. &#xD;
+properties: price is for the final price for the ticket, with all the factors taken into account; &#xD;
+flight - what flight is this ticket for; &#xD;
+paidFor - whether the client has paid for this ticket.&#xD;
+@author Anastasia</body>
+        </ownedComment>
+        <generalization xmi:id="_L9OfYJYQEeavz_PMIqAnnw" general="_LmZTwJYQEeavz_PMIqAnnw"/>
+        <ownedAttribute xmi:id="_MBZNsJYQEeavz_PMIqAnnw" name="price">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBZ0wJYQEeavz_PMIqAnnw" name="paidFor">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME84AJYQEeavz_PMIqAnnw" name="Ticket" specification="_L9pWIJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME84AZYQEeavz_PMIqAnnw" name="flightDate" type="_L8-nwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME84ApYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_ME84A5YQEeavz_PMIqAnnw" type="_Lvm6IJYQEeavz_PMIqAnnw" direction="return"/>
+          <language>java</language>
+          <body>super(flightDate, flightSeatsLeft);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME9fEJYQEeavz_PMIqAnnw" name="hashCode" specification="_LvqkgJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME9fEZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final int prime = 31;&#xD;
+		int result = 1;&#xD;
+		result = prime * result + (paidFor ? 1231 : 1237);&#xD;
+		long temp;&#xD;
+		temp = Double.doubleToLongBits(price);&#xD;
+		result = prime * result + (int) (temp ^ (temp >>> 32));&#xD;
+		return result;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME-GIJYQEeavz_PMIqAnnw" name="equals" specification="_L9rLUJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME-GIZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME-GIpYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (this == obj)&#xD;
+			return true;&#xD;
+		if (obj == null)&#xD;
+			return false;&#xD;
+		if (getClass() != obj.getClass())&#xD;
+			return false;&#xD;
+		Ticket other = (Ticket) obj;&#xD;
+		if (paidFor != other.paidFor)&#xD;
+			return false;&#xD;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))&#xD;
+			return false;&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME-GI5YQEeavz_PMIqAnnw" name="toString" specification="_Lv1joJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME-GJJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return &quot;Ticket [price=&quot; + price + &quot;, paidFor=&quot; + paidFor + &quot;]&quot;;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_LvqkgJYQEeavz_PMIqAnnw" name="hashCode" method="_ME9fEJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_LvryoJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Lv1joJYQEeavz_PMIqAnnw" name="toString" method="_ME-GI5YQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lv4m8JYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9pWIJYQEeavz_PMIqAnnw" name="Ticket" method="_ME84AJYQEeavz_PMIqAnnw">
+          <eAnnotations xmi:id="_L9p9MZYQEeavz_PMIqAnnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_L9p9MpYQEeavz_PMIqAnnw" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_L9pWIZYQEeavz_PMIqAnnw" name="flightDate" type="_L8-nwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9p9MJYQEeavz_PMIqAnnw" name="flightSeatsLeft">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L9p9M5YQEeavz_PMIqAnnw" type="_Lvm6IJYQEeavz_PMIqAnnw" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9rLUJYQEeavz_PMIqAnnw" name="equals" method="_ME-GIJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_L9rLUZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9ryYJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MFHQEJYQEeavz_PMIqAnnw" name="" memberEnd="_MBQq0JYQEeavz_PMIqAnnw _MFLhgJYQEeavz_PMIqAnnw">
+        <ownedEnd xmi:id="_MFLhgJYQEeavz_PMIqAnnw" name="" type="_LmZTwJYQEeavz_PMIqAnnw" association="_MFHQEJYQEeavz_PMIqAnnw"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_MFNWsJYQEeavz_PMIqAnnw" name="" memberEnd="_MBU8QZYQEeavz_PMIqAnnw _MFNWsZYQEeavz_PMIqAnnw">
+        <ownedEnd xmi:id="_MFNWsZYQEeavz_PMIqAnnw" name="" type="_LmzjcJYQEeavz_PMIqAnnw" association="_MFNWsJYQEeavz_PMIqAnnw"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Lli_MJYQEeavz_PMIqAnnw" name="clientinfo">
+      <packagedElement xmi:type="uml:Class" xmi:id="_LwGCUJYQEeavz_PMIqAnnw" name="Human">
+        <ownedAttribute xmi:id="_MBbC4JYQEeavz_PMIqAnnw" name="name">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME-tMJYQEeavz_PMIqAnnw" name="Human" specification="_LwKTwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME-tMZYQEeavz_PMIqAnnw" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_ME-tMpYQEeavz_PMIqAnnw" type="_LwGCUJYQEeavz_PMIqAnnw" direction="return"/>
+          <language>java</language>
+          <body>setName(name);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME_UQJYQEeavz_PMIqAnnw" name="hashCode" specification="_LwNXEJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME_UQZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final int prime = 31;&#xD;
+		int result = 1;&#xD;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());&#xD;
+		return result;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME_UQpYQEeavz_PMIqAnnw" name="equals" specification="_L9uOoJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME_UQ5YQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_ME_URJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (this == obj)&#xD;
+			return true;&#xD;
+		if (obj == null)&#xD;
+			return false;&#xD;
+		if (getClass() != obj.getClass())&#xD;
+			return false;&#xD;
+		Human other = (Human) obj;&#xD;
+		if (name == null) {&#xD;
+			if (other.name != null)&#xD;
+				return false;&#xD;
+		} else if (!name.equals(other.name))&#xD;
+			return false;&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_ME_7UJYQEeavz_PMIqAnnw" name="toString" specification="_LwUEwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_ME_7UZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return &quot;Human [name=&quot; + name + &quot;]&quot;;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_LwKTwJYQEeavz_PMIqAnnw" name="Human" method="_ME-tMJYQEeavz_PMIqAnnw">
+          <eAnnotations xmi:id="_LwMI8JYQEeavz_PMIqAnnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_LwMI8ZYQEeavz_PMIqAnnw" key="create"/>
+          </eAnnotations>
+          <ownedParameter xmi:id="_LwKTwZYQEeavz_PMIqAnnw" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_LwMwAJYQEeavz_PMIqAnnw" type="_LwGCUJYQEeavz_PMIqAnnw" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LwNXEJYQEeavz_PMIqAnnw" name="hashCode" method="_ME_UQJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_LwN-IJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LwUEwJYQEeavz_PMIqAnnw" name="toString" method="_ME_7UJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_LwVS4JYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9uOoJYQEeavz_PMIqAnnw" name="equals" method="_ME_UQpYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_L9u1sJYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9vcwJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_LwlxkJYQEeavz_PMIqAnnw" name="Client">
+        <generalization xmi:id="_L9VNEJYQEeavz_PMIqAnnw" general="_LwGCUJYQEeavz_PMIqAnnw"/>
+        <ownedAttribute xmi:id="_MBcRAJYQEeavz_PMIqAnnw" name="luggageWeight">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_MBc4EJYQEeavz_PMIqAnnw" name="registerFirst">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+        </ownedAttribute>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFBwgpYQEeavz_PMIqAnnw" name="Client" specification="_Lwx-0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFBwg5YQEeavz_PMIqAnnw" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MFBwhJYQEeavz_PMIqAnnw" type="_LwlxkJYQEeavz_PMIqAnnw" direction="return"/>
+          <language>java</language>
+          <body>super(name);&#xD;
+		// TODO Auto-generated constructor stub&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFCXkJYQEeavz_PMIqAnnw" name="orderTicket" specification="_L9SJwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFCXkZYQEeavz_PMIqAnnw" name="flightInfo" type="_LmZTwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_MFCXkpYQEeavz_PMIqAnnw" name="luggageWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MFCXk5YQEeavz_PMIqAnnw" name="registerFirst">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_MFCXlJYQEeavz_PMIqAnnw" type="_Lvm6IJYQEeavz_PMIqAnnw" direction="return"/>
+          <language>java</language>
+          <body>Ticket ticket = new Ticket(null, luggageWeight);&#xD;
+		&#xD;
+		/*if (flightInfo.getSeatsLeft()!=0) {&#xD;
+			ticket.setFlight(flightInfo);&#xD;
+			ticket.setPrice(flightInfo, luggageWeight, registerFirst);&#xD;
+			System.out.println(&quot;The ticket is ordered&quot;);&#xD;
+			System.out.println(&quot;The price is &quot; + ticket.getPrice());			&#xD;
+		} else {&#xD;
+			System.out.println(&quot;There are no seats left on this flight&quot;);&#xD;
+		}*/&#xD;
+		&#xD;
+		return ticket;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFC-oJYQEeavz_PMIqAnnw" name="payForTicket" specification="_L9T-8JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFC-oZYQEeavz_PMIqAnnw" name="ticket" type="_Lvm6IJYQEeavz_PMIqAnnw"/>
+          <language>java</language>
+          <body>//bank transaction???&#xD;
+		&#xD;
+		ticket.setPaidFor(true);&#xD;
+				&#xD;
+		System.out.print(&quot;The ticket is paid for&quot;);&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFC-opYQEeavz_PMIqAnnw" name="hashCode" specification="_Lw8W4JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFC-o5YQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>final int prime = 31;&#xD;
+		int result = super.hashCode();&#xD;
+		result = prime * result + luggageWeight;&#xD;
+		result = prime * result + (registerFirst ? 1231 : 1237);&#xD;
+		return result;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFDlsJYQEeavz_PMIqAnnw" name="equals" specification="_MBLyUJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFDlsZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_MFDlspYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>if (this == obj)&#xD;
+			return true;&#xD;
+		if (!super.equals(obj))&#xD;
+			return false;&#xD;
+		if (getClass() != obj.getClass())&#xD;
+			return false;&#xD;
+		Client other = (Client) obj;&#xD;
+		if (luggageWeight != other.luggageWeight)&#xD;
+			return false;&#xD;
+		if (registerFirst != other.registerFirst)&#xD;
+			return false;&#xD;
+		return true;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFEMwJYQEeavz_PMIqAnnw" name="toString" specification="_LxMOgJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFEMwZYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>return &quot;Client [luggageWeight=&quot; + luggageWeight + &quot;, registerFirst=&quot; + registerFirst + &quot;]&quot;;&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_Lwx-0JYQEeavz_PMIqAnnw" name="Client" method="_MFBwgpYQEeavz_PMIqAnnw">
+          <eAnnotations xmi:id="_Lwyl4JYQEeavz_PMIqAnnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+            <details xmi:id="_Lwyl4ZYQEeavz_PMIqAnnw" key="create"/>
+          </eAnnotations>
+          <ownedComment xmi:id="_MFPy8JYQEeavz_PMIqAnnw">
+            <body>Constructor for Client; &#xD;
+	 * @param name - for establishing the client's name</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_Lwx-0ZYQEeavz_PMIqAnnw" name="name">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_LwzM8JYQEeavz_PMIqAnnw" type="_LwlxkJYQEeavz_PMIqAnnw" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_Lw8W4JYQEeavz_PMIqAnnw" name="hashCode" method="_MFC-opYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lw9lAJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_LxMOgJYQEeavz_PMIqAnnw" name="toString" method="_MFEMwJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_LxM1kJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9SJwJYQEeavz_PMIqAnnw" name="orderTicket" method="_MFCXkJYQEeavz_PMIqAnnw">
+          <ownedComment xmi:id="_MFPy8ZYQEeavz_PMIqAnnw">
+            <body>Method for ordering the ticket - creating the ticket object &#xD;
+	 * with a set price; &#xD;
+	 * @param flightInfo - Flight type object with information about the flight; &#xD;
+	 * @param luggageWeight - the amount of client's luggage; &#xD;
+	 * @param registerFirst - whether the client requested the first priority boarding; &#xD;
+	 * @return</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9Sw0JYQEeavz_PMIqAnnw" name="flightInfo" type="_LmZTwJYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_L9Sw0ZYQEeavz_PMIqAnnw" name="luggageWeight">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L9Sw0pYQEeavz_PMIqAnnw" name="registerFirst">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_L9TX4JYQEeavz_PMIqAnnw" type="_Lvm6IJYQEeavz_PMIqAnnw" direction="return"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_L9T-8JYQEeavz_PMIqAnnw" name="payForTicket" method="_MFC-oJYQEeavz_PMIqAnnw">
+          <ownedComment xmi:id="_MFPy8pYQEeavz_PMIqAnnw">
+            <body>Method for paying for the ticket; &#xD;
+	 * !currently i have no idea how it should be done (bank transaction???); &#xD;
+	 * @param ticket - information about the ticket the client is paying for</body>
+          </ownedComment>
+          <ownedParameter xmi:id="_L9T-8ZYQEeavz_PMIqAnnw" name="ticket" type="_Lvm6IJYQEeavz_PMIqAnnw"/>
+        </ownedOperation>
+        <ownedOperation xmi:id="_MBLyUJYQEeavz_PMIqAnnw" name="equals" method="_MFDlsJYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MBLyUZYQEeavz_PMIqAnnw" name="obj" type="_L9eXAZYQEeavz_PMIqAnnw"/>
+          <ownedParameter xmi:id="_MBMZYJYQEeavz_PMIqAnnw" direction="return">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Ll49cJYQEeavz_PMIqAnnw" name="main">
+      <packagedElement xmi:type="uml:Class" xmi:id="_LxeiYJYQEeavz_PMIqAnnw" name="MainProgram">
+        <ownedComment xmi:id="_MFQaAJYQEeavz_PMIqAnnw">
+          <body>&#xD;
+@author Anastasia</body>
+        </ownedComment>
+        <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_MFEz0JYQEeavz_PMIqAnnw" name="main" specification="_Lxiz0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_MFEz0ZYQEeavz_PMIqAnnw" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_MFEz0pYQEeavz_PMIqAnnw" value="*"/>
+          </ownedParameter>
+          <language>java</language>
+          <body>Client client = new Client(&quot;Petr Petrov&quot;);&#xD;
+		&#xD;
+		client.setLuggageWeight(10);&#xD;
+		client.setRegisterFirst(false);&#xD;
+		&#xD;
+		System.out.println(&quot;The client is &quot; + client.getName() + &quot; with &quot; &#xD;
+				+ client.getLuggageWeight() &#xD;
+				+ &quot; kgs of luggage and do they have first priority boarding? &quot; &#xD;
+				+ client.getRegisterFirst());&#xD;
+		&#xD;
+		/*Flight flight = new Flight(LocalDate.of(2016, 10, 31), 30, 10, 5, &#xD;
+				LocalDate.of(2016, 10, 25), 2, 5f, 3f, 3f);&#xD;
+		&#xD;
+		System.out.println(&quot;The flight is on &quot; + flight.getDate() + &quot;, the base price for 1 ticket is &quot; &#xD;
+				+ flight.getBasicPrice() + &quot;, there are &quot; + flight.getSeatsLeft() &#xD;
+				+ &quot; seat left&quot;);&#xD;
+		&#xD;
+		Ticket ticket = new Ticket();&#xD;
+		&#xD;
+		ticket = client.orderTicket(flight, client.getLuggageWeight(), client.getRegisterFirst());&#xD;
+		client.payForTicket(ticket);*/&#xD;
+&#xD;
+	</body>
+        </ownedBehavior>
+        <ownedOperation xmi:id="_Lxiz0JYQEeavz_PMIqAnnw" name="main" isStatic="true" method="_MFEz0JYQEeavz_PMIqAnnw">
+          <ownedParameter xmi:id="_Lxja4JYQEeavz_PMIqAnnw" name="args">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LxkpAJYQEeavz_PMIqAnnw" value="*"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="_IgTskJYQEeavz_PMIqAnnw">
+      <eAnnotations xmi:id="_IgX-AJYQEeavz_PMIqAnnw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="_IgeEoJYQEeavz_PMIqAnnw" base_Package="_HOEooJYQEeavz_PMIqAnnw">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LmokUJYQEeavz_PMIqAnnw" base_Element="_LmmvIJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LmqZgJYQEeavz_PMIqAnnw" base_Element="_LmmvIJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LmqZgZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Lmtc0JYQEeavz_PMIqAnnw" base_Element="_LmrnoJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LmuD4JYQEeavz_PMIqAnnw" base_Element="_LmrnoJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LmuD4ZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Lm5qEJYQEeavz_PMIqAnnw" base_Element="_Lm304JYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_Lm6RIJYQEeavz_PMIqAnnw" base_Element="_Lm304JYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_Lm6RIZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Lm8GUJYQEeavz_PMIqAnnw" base_Element="_Lm64MJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_Lm8tYJYQEeavz_PMIqAnnw" base_Element="_Lm64MJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_Lm9UcJYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LvsZsJYQEeavz_PMIqAnnw" base_Element="_LvqkgJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_Lvtn0JYQEeavz_PMIqAnnw" base_Element="_LvqkgJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_Lvtn0ZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Lv5OAJYQEeavz_PMIqAnnw" base_Element="_Lv1joJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_Lv7DMJYQEeavz_PMIqAnnw" base_Element="_Lv1joJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_Lv7DMZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LwOlMJYQEeavz_PMIqAnnw" base_Element="_LwNXEJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LwPzUJYQEeavz_PMIqAnnw" base_Element="_LwNXEJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LwRogJYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LwXvIJYQEeavz_PMIqAnnw" base_Element="_LwUEwJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LwY9QJYQEeavz_PMIqAnnw" base_Element="_LwUEwJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LwY9QZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_Lw-MEJYQEeavz_PMIqAnnw" base_Element="_Lw8W4JYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LxHWAJYQEeavz_PMIqAnnw" base_Element="_Lw8W4JYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LxHWAZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_LxODsJYQEeavz_PMIqAnnw" base_Element="_LxMOgJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_LxOqwJYQEeavz_PMIqAnnw" base_Element="_LxMOgJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_LxOqwZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:Reference xmi:id="_L9BEAJYQEeavz_PMIqAnnw" base_Element="_L8-nwJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Reference xmi:id="_L9gzQJYQEeavz_PMIqAnnw" base_Element="_L9eXAZYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L9iBYJYQEeavz_PMIqAnnw" base_Element="_L9gzQZYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_L9iocJYQEeavz_PMIqAnnw" base_Element="_L9gzQZYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_L9iocZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L9mS0ZYQEeavz_PMIqAnnw" base_Element="_L9lrwJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_L9m54JYQEeavz_PMIqAnnw" base_Element="_L9lrwJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_L9ng8JYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L9sZcJYQEeavz_PMIqAnnw" base_Element="_L9rLUJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_L9tAgJYQEeavz_PMIqAnnw" base_Element="_L9rLUJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_L9tAgZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_L9wD0JYQEeavz_PMIqAnnw" base_Element="_L9uOoJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_L9wq4JYQEeavz_PMIqAnnw" base_Element="_L9uOoJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_L9wq4ZYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MBMZYZYQEeavz_PMIqAnnw" base_Element="_MBLyUJYQEeavz_PMIqAnnw"/>
+  <UMLLabProfile:Annotations xmi:id="_MBNAcJYQEeavz_PMIqAnnw" base_Element="_MBLyUJYQEeavz_PMIqAnnw">
+    <annotations xmi:id="_MBNngJYQEeavz_PMIqAnnw" name="Override"/>
+  </UMLLabProfile:Annotations>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_MBdfIJYQEeavz_PMIqAnnw" base_Element="_MBc4EJYQEeavz_PMIqAnnw">
+    <associatedElement xmi:type="uml:Operation" xmi:id="_MBeGMJYQEeavz_PMIqAnnw" name="getRegisterFirst" method="_MFBJcJYQEeavz_PMIqAnnw">
+      <ownedParameter xmi:id="_MBfUUJYQEeavz_PMIqAnnw" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </associatedElement>
+    <associatedElement xmi:type="uml:Operation" xmi:id="_MBetQJYQEeavz_PMIqAnnw" name="setRegisterFirst" method="_MFBwgJYQEeavz_PMIqAnnw">
+      <ownedParameter xmi:id="_MBetQZYQEeavz_PMIqAnnw" name="clientRegisterFirst">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+      </ownedParameter>
+    </associatedElement>
+  </UMLLabProfile:LegacyStyledElement>
+  <uml:OpaqueBehavior xmi:id="_MFBJcJYQEeavz_PMIqAnnw" name="getRegisterFirst" specification="_MBeGMJYQEeavz_PMIqAnnw">
+    <ownedParameter xmi:id="_MFBJcZYQEeavz_PMIqAnnw" direction="return">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>return registerFirst;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+  <uml:OpaqueBehavior xmi:id="_MFBwgJYQEeavz_PMIqAnnw" name="setRegisterFirst" specification="_MBetQJYQEeavz_PMIqAnnw">
+    <ownedParameter xmi:id="_MFBwgZYQEeavz_PMIqAnnw" name="clientRegisterFirst">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </ownedParameter>
+    <language>java</language>
+    <body>registerFirst=clientRegisterFirst;&#xD;
+	</body>
+  </uml:OpaqueBehavior>
+</xmi:XMI>

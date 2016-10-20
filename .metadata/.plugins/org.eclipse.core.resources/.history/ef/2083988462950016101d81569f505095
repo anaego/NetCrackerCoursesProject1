@@ -1,0 +1,103 @@
+package airlineinfo;
+
+import java.time.LocalDate;
+
+public class Order {
+	
+	private double basicPrice;
+	
+	private int minimumSeats;
+	private LocalDate maximumDate;
+
+	private double luggagePrice;
+	private float registerFirstPrice;
+	private float seatsFactorPrice;
+	private float dateFactorPrice;
+	
+	//getters and setters
+	
+	public double getBasicPrice() {
+		return basicPrice;
+	}
+	
+	public void setBasicPrice(double flightBasicPrice) {
+		basicPrice=flightBasicPrice;
+	}
+	
+	
+	public double getLuggagePrice() {
+		return luggagePrice;
+	}
+
+	public void setLuggagePrice(double luggagePrice) {
+		this.luggagePrice = luggagePrice;
+	}
+
+	public float getRegisterFirstPrice() {
+		return registerFirstPrice;
+	}
+
+	public void setRegisterFirstPrice(float registerFirstPrice) {
+		this.registerFirstPrice = registerFirstPrice;
+	}
+
+	
+	public int getMinimumSeats() {
+		return minimumSeats;
+	}
+
+	public void setMinimumSeats(int minimumSeats) {
+		this.minimumSeats = minimumSeats;
+	}
+
+	public LocalDate getMaximumDate() {
+		return maximumDate;
+	}
+
+	public void setMaximumDate(LocalDate maximumDate) {
+		this.maximumDate = maximumDate;
+	}
+
+	public float getSeatsFactorPrice() {
+		return seatsFactorPrice;
+	}
+
+	public void setSeatsFactorPrice(float seatsFactorPrice) {
+		this.seatsFactorPrice = seatsFactorPrice;
+	}
+
+	public float getDateFactorPrice() {
+		return dateFactorPrice;
+	}
+
+	public void setDateFactorPrice(float dateFactorPrice) {
+		this.dateFactorPrice = dateFactorPrice;
+	}
+	
+	
+	//for calculating the price, taking luggage and stuff into account
+		/** One of the two setters for the price: 
+		 * the one that calculates the price taking everything into account; 
+		 * @param flightInfo - information about the flight; 
+		 * @param luggageWeight; 
+		 * @param registerFirst; 
+		 */
+		public void setPrice(Flight flightInfo, int luggageWeight, boolean registerFirst) {
+			
+			price = flightInfo.getBasicPrice() + luggageWeight * flightInfo.getLuggagePrice();
+			
+			if (registerFirst == true) {
+				price=price + flightInfo.getBasicPrice() * flightInfo.getRegisterFirstPrice();
+			}
+			
+			if (flightInfo.getSeatsLeft() < flightInfo.getMinimumSeats()) {
+				price=price + flightInfo.getBasicPrice() * flightInfo.getSeatsFactorPrice();
+			}
+			
+			
+			if ( flightInfo.getMaximumDate().isBefore( LocalDate.now() ) ) {			
+				price=price+flightInfo.getBasicPrice() * flightInfo.getDateFactorPrice();
+			}
+		}
+
+}

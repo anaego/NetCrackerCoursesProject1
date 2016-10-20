@@ -1,0 +1,50 @@
+
+public class Flight {
+	
+	private String date;
+	private int seatsLeft;
+	private double basicPrice;
+	
+	//Constructor for initializing some flight info
+	public Flight(String flightDate, int flightSeatsLeft, double flightBasicPrice)
+	{
+		setDate(flightDate);
+		setSeatsLeft(flightSeatsLeft);
+		setBasicPrice(flightBasicPrice);
+	}
+	
+	//getters and setters
+	
+	public String getDate()
+	{
+		return date;
+	}
+	
+	public void setDate(String flightDate)
+	{
+		date=flightDate;
+	}
+	
+	public int getSeatsLeft()
+	{
+		return seatsLeft;
+	}
+	
+	public void setSeatsLeft(int flightSeatsLeft)
+	{
+		seatsLeft=flightSeatsLeft;
+	}
+	
+	public double getBasicPrice()
+	{
+		return basicPrice;
+	}
+	
+	public void setBasicPrice(double flightBasicPrice)
+	{
+		basicPrice=flightBasicPrice;
+	}
+	
+	//overridden methods
+
+}

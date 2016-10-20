@@ -1,0 +1,75 @@
+
+public class Ticket {
+	
+	private double price;
+	private Flight flight;
+	
+	//getters and setters
+	
+	public double getPrice()
+	{
+		return price;
+	}
+	
+	public void setPrice(double ticketPrice)
+	{
+		price=ticketPrice;
+	}
+	
+	public Flight getFlight()
+	{
+		return flight;
+	}
+	
+	public void setFlight(Flight ticketFlight)
+	{
+		flight=ticketFlight;
+	}
+	
+	//Overridden methods (automatically generated)
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((flight == null) ? 0 : flight.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ticket other = (Ticket) obj;
+		if (flight == null) {
+			if (other.flight != null)
+				return false;
+		} else if (!flight.equals(other.flight))
+			return false;
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Ticket [price=" + price + ", flight=" + flight.toString() + "]";
+	}
+	
+}

@@ -1,0 +1,123 @@
+
+public class Client {
+	
+	private String name;
+	private int luggageWeight;
+	private boolean registerFirst;
+	
+	//Constructor, for establishing the client's name
+	public Client (String name)
+	{
+		setName(name);
+	}
+	
+	//getters and setters
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public void setName(String clientName)
+	{
+		name=clientName;
+	}
+	
+	public int getLuggageWeight()
+	{
+		return luggageWeight;
+	}
+	
+	public void setLuggageWeight(int clientLuggageWeight)
+	{
+		luggageWeight=clientLuggageWeight;
+	}
+	
+	public boolean getRegisterFirst()
+	{
+		return registerFirst;
+	}
+	
+	public void setRegisterFirst(boolean clientRegisterFirst)
+	{
+		registerFirst=clientRegisterFirst;
+	}
+	
+	//important methods
+	
+	public Ticket orderTicket(Flight flightInfo, int luggageWeight, boolean registerFirst)
+	{
+		Ticket ticket = new Ticket();
+		
+		if (flightInfo.getSeatsLeft()!=0)
+		{
+			ticket.setFlight(flightInfo);
+			ticket.setPrice(flightInfo.getBasicPrice(), luggageWeight, registerFirst);
+		}
+		else
+		{
+			System.out.print("There are no seats left on this flight");
+		}
+		
+		return ticket;
+	}
+	
+	public void payForTicket(Ticket ticket)
+	{
+		//bank transaction???
+		
+		ticket.setPaidFor(true);
+				
+		System.out.print("The ticket is paid for");
+	}
+
+	//Overridden methods (automatically generated)
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + luggageWeight;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + (registerFirst ? 1231 : 1237);
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Client other = (Client) obj;
+		if (luggageWeight != other.luggageWeight)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (registerFirst != other.registerFirst)
+			return false;
+		return true;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Client [name=" + name + ", luggageWeight=" + luggageWeight + ", registerFirst=" + registerFirst + "]";
+	}
+
+	
+
+}

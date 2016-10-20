@@ -1,0 +1,12 @@
+1476423534262	Rename field 'luggageWeight'
+1476423557734	Rename field 'registerFirst'
+1476423654155	Rename local variable 'clientLuggageWeight'
+1476423673598	Rename local variable 'clientRegisterFirst'
+1476445668795	Rename field 'minimalDate'
+1476445700835	Rename method 'getMinimalDate'
+1476445722217	Rename method 'setMinimalDate'
+1476448113544	Move compilation unit
+1476448128503	Move compilation unit
+1476448146096	Move compilation unit
+1476448179688	Move compilation unit
+1476448189829	Move compilation unit

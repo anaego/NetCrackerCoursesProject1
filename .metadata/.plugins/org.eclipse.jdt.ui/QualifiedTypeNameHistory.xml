@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="ClientInfo.Client"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="AirlineInfo.Flight"/>
+<fullyQualifiedTypeName name="AirlineInfo.Ticket"/>
+<fullyQualifiedTypeName name="java.io.Console"/>
+<fullyQualifiedTypeName name="airlineinfo.Ticket"/>
+<fullyQualifiedTypeName name="airlineinfo.Order"/>
+<fullyQualifiedTypeName name="clientinfo.Human"/>
+</qualifiedTypeNameHistroy>

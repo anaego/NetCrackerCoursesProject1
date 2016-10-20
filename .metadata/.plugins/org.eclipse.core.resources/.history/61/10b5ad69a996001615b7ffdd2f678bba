@@ -1,0 +1,15 @@
+package airlineinfo;
+
+import java.time.LocalDate;
+
+public interface IFlightRelated {
+	
+	public String getPlane();
+
+	public void setPlane(String plane);
+
+	public LocalDate getDate();
+	
+	public void setDate(LocalDate flightDate);
+
+}

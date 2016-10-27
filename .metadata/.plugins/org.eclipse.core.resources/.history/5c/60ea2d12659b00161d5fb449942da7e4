@@ -1,0 +1,58 @@
+package main;
+
+import java.util.ListIterator;
+import java.util.Scanner;
+
+import clientinfo.Client;
+
+public class Menu1ClientCourse implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter your name please");
+		String answer = scanner.nextLine();
+		boolean haveClient = false;
+		
+		//Using ListIterator! Yes, we _could've_ just used for ( : ) loop
+		//But it wouldn't be that interesting!
+		for (ListIterator<Client> i = MainProgram.listIterator; i.hasNext(); ) {
+			Client client = i.next();
+			if (answer.equals( (client.getName()) )) {
+				
+				haveClient=true;
+				MainProgram.currentClient = client;
+				
+				if (client.getTicket() != null) {
+					System.out.println("You have a ticket ordered! " 
+							+ client.getTicket().getDate().toString() 
+							+ ", for" + client.getTicket());
+					
+					if (client.getTicket().isPaidFor()==true) {
+						System.out.println("Your ticket is paid for. Have a safe flight!");
+						return "saveDecision";
+						
+					} else {						
+						System.out.println("To go back to menu: back ");
+						scanner.nextLine();
+						return "back";
+					}
+				}
+				
+			}
+		}
+		
+		if (haveClient==false) {			
+			Client newClient = new Client(answer);			
+			MainProgram.clientList.add(newClient);
+			
+			System.out.println("You can order a ticket to one of those flights: ");
+			
+			
+		}
+	
+		
+	}
+
+}

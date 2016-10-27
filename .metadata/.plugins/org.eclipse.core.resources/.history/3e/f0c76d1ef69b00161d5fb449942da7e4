@@ -1,0 +1,15 @@
+package main;
+
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+
+public class HelpDateFormatter {
+	
+	public String DateFormatter (GregorianCalendar calendar) {
+	    SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");
+	    fmt.setCalendar(calendar);
+	    String dateFormatted = fmt.format(calendar.getTime());
+	    return dateFormatted;
+	}
+
+}

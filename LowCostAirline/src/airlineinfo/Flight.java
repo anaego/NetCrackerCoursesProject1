@@ -1,17 +1,23 @@
 package airlineinfo;
 
-import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.GregorianCalendar;
+
+import main.IncorrectValueException;
 
 /** Class Flight represents a flight that the client can choose.
  * properties: date - flight date, seatsLeft - how many 
  * seats are left; plane - the name of the plane model. 
  * @author Anastasia
  */
-public class Flight {
+public class Flight implements IFlightRelated {
 	
-	private LocalDate date;
+	private GregorianCalendar date;
 	private String plane;
 	private int seatsLeft;
+	private String destination;
+	
+	private Order order;
 	
 	/** static variable for object counting
 	 */
@@ -22,16 +28,33 @@ public class Flight {
 	 * for initializing some flight info 
 	 * and also for counting objects of type Flight
 	 */
-	public Flight(LocalDate flightDate, int flightSeatsLeft, String plane) {
+	public Flight(GregorianCalendar flightDate, int flightSeatsLeft, String plane, 
+			String flightDestination) throws IncorrectValueException {
 		setDate(flightDate);
 		setSeatsLeft(flightSeatsLeft);
 		setPlane(plane);
+		setDestination(flightDestination);
 		
 		counter++;
 	}
 	
 	//getters and setters
 	
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		try {
+			this.order = order;
+			if (this.order == null)
+					throw new IncorrectValueException("Incorrect order value." 
+							+ " Please change it.");
+		} catch(IncorrectValueException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	public String getPlane() {
 		if (plane!=null)
 			return plane;
@@ -43,15 +66,19 @@ public class Flight {
 		this.plane = plane;
 	}
 
-	public LocalDate getDate() {
+	public GregorianCalendar getDate() {
 		return date;
 	}
 	
-	public void setDate(LocalDate flightDate) {
-		if (flightDate.isAfter(LocalDate.now()))
+	public void setDate(GregorianCalendar flightDate) {
+		try {
 			date=flightDate;
-		else
-			System.out.println("You can't set an old flight date!");
+			if (date.before( new GregorianCalendar() ))
+					throw new IncorrectValueException("You can't set an old flight date!" 
+							+ " Please change the flight date.");
+		} catch(IncorrectValueException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	public int getSeatsLeft() {
@@ -59,12 +86,23 @@ public class Flight {
 	}
 	
 	public void setSeatsLeft(int flightSeatsLeft) {
-		if (flightSeatsLeft>=0) 
+		try {
 			seatsLeft=flightSeatsLeft;
-		else
-			System.out.println("Incorrect value");
+			if (seatsLeft <= 0)
+					throw new IncorrectValueException("Incorrect seatsLeft value." 
+							+ " Please change it.");
+		} catch(IncorrectValueException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public String getDestination() {
+		return destination;
 	}
 
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
 	
 	//Overridden methods (automatically generated)
 
@@ -121,6 +159,20 @@ public class Flight {
 	}
 	
 	
+	
+	
+	public static Comparator<Flight> flightDestinationComparator
+    = new Comparator<Flight>() {
+
+		public int compare(Flight flight1, Flight flight2) {
+			
+			return flight1.getDestination().compareToIgnoreCase(flight2.getDestination());
+
+		}
+
+	};
+	
+
 
 
 	

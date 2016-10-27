@@ -1,0 +1,36 @@
+package main;
+
+import java.util.Scanner;
+
+public class MenuClientOrderFlight implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		String answer = scanner.nextLine();
+		
+		System.out.println("Please tell us how much luggage do you have (in kgs)");
+		answer = scanner.nextLine();
+		try {
+			MainProgram.currentClient.setLuggageWeight(Integer.parseInt(answer));
+		} catch (NumberFormatException e) {
+			System.out.println("You entered something wrong. Please try again");
+			return "orderFlight";
+		}
+		
+		System.out.println("Do you want to be able to choose your seat? (yes/no)");
+		answer = scanner.nextLine();
+		if (answer.equals("yes")){
+			MainProgram.currentClient.setRegisterFirst(true);
+		} else if (answer.equals("no")) {
+			MainProgram.currentClient.setRegisterFirst(false);
+		} else {
+			System.out.println("You entered something wrong. Please try again");
+			return "orderFlight";
+		}
+		
+
+	}
+
+}

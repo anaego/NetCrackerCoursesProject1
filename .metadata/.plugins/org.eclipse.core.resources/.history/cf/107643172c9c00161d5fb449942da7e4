@@ -1,0 +1,7 @@
+package main;
+
+public interface IMenuStrategy {
+	
+	String menuAction(String command);
+
+}

@@ -1,0 +1,77 @@
+package main;
+
+import java.util.ListIterator;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+import airlineinfo.Flight;
+import clientinfo.Client;
+import main.MainProgram.MenuBranch;
+
+public class Menu1ClientCourse implements IMenuStrategy {
+	
+	public MenuBranch menuAction(MenuBranch command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("---Starting the new session---");
+		System.out.println("Enter your name please");
+		String answer = scanner.nextLine();
+		boolean haveClient = false;
+		
+		//Client client;
+		
+		//Using ListIterator! Yes, we _could've_ just used for ( : ) loop
+		//But it wouldn't be that interesting!
+		for (Client client : MainProgram.clientList ) {
+			//client = i.next();
+			if (answer.equals( (client.getName()) )) {
+				
+				haveClient=true;
+				MainProgram.currentClient = client;
+				
+				if (client.getTicket() != null) {
+					System.out.println("You have a ticket ordered! " 
+							+ HelpDateFormatter.DateFormatter(client.getTicket().getDate() )
+							+ ", for" + client.getTicket());
+					
+					if (client.getTicket().isPaidFor()==true) {
+						System.out.println("Your ticket is paid for. Have a safe flight!");
+						return MenuBranch.SAVEDECISION;
+						
+					} else {						
+						System.out.println("Do you want to pay for the ticket now? (yes/no)");
+						answer = scanner.nextLine();
+						if (answer.equals("yes")) {
+							return "pay";
+						}
+						
+						System.out.println("Do you want to change booking? (yes/no)");
+						answer = scanner.nextLine();
+						if (answer.equals("yes"))
+							return "newClient";
+						else
+							return MenuBranch.BACK;
+					}
+				} else {
+					return "newClient";
+				}
+				
+			}
+		}
+		
+		if (haveClient==false) {
+			Client newClient = new Client(answer);			
+			MainProgram.clientList.add(newClient);
+			MainProgram.currentClient = newClient;
+			return "newClient";			
+		}
+		
+		System.out.println("Something has gone wrong. Please start again");
+		return MenuBranch.BACK;
+	
+		
+	}
+
+}

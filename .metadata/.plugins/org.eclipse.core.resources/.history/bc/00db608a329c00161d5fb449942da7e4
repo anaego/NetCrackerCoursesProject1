@@ -1,0 +1,16 @@
+package main;
+
+import java.util.Scanner;
+
+import main.MainProgram.MenuBranch;
+
+public class MenuClientPay implements IMenuStrategy {
+	
+	public MenuBranch menuAction(MenuBranch command) {
+		
+		MainProgram.currentClient.payForTicket();
+		System.out.println("Your ticket is paid for! Have a safe flight");
+		return MenuBranch.SAVEDECISION;
+	}
+
+}

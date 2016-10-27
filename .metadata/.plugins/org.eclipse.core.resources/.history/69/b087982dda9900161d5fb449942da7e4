@@ -1,0 +1,27 @@
+package main;
+
+import java.util.ListIterator;
+import java.util.Scanner;
+
+import clientinfo.Client;
+
+public class MenuStartChooseRole implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Are you a client or an employee?");
+		String answer = scanner.nextLine();
+		
+		if (answer == "client\n") {
+			return "client";			
+		} else if (answer == "employee") {
+			return "employee";
+		} else {
+			return "back";
+		}
+
+	}
+
+}

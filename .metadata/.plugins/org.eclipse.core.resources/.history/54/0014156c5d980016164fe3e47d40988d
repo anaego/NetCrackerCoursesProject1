@@ -1,0 +1,15 @@
+package main;
+
+public class MenuStartChooseRole implements IMenuStrategy {
+	
+	public String menuAction(String command)
+	{
+		System.out.println("Are you a client or an employee?");
+		if (System.console().readLine() == "client")
+		{
+			
+		}
+		return "";
+	}
+
+}

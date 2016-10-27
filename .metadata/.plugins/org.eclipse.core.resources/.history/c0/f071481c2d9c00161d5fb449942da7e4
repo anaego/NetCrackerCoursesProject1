@@ -1,0 +1,23 @@
+package main;
+
+import java.util.Scanner;
+
+public class MenuClientSaveDecision implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+	
+		System.out.println("Do you want to save it to a file? yes/no");
+		String answer = scanner.nextLine();
+		if (answer.equals("yes")) 
+			return  "saveTicket";
+		else if (answer.equals("no"))
+			return "back";
+		else {
+			System.out.println("Please enter either yes or no");
+			return "saveDecision";
+		}
+	}
+
+}

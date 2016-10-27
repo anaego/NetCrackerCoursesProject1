@@ -1,0 +1,9 @@
+package main;
+
+import main.MainProgram.MenuBranch;
+
+public interface IMenuStrategy {
+	
+	MenuBranch menuAction(MenuBranch command);
+
+}

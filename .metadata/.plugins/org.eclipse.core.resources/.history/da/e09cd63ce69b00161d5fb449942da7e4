@@ -1,0 +1,45 @@
+package main;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class MenuClientSaveTicket implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("File will be saved in two variants. Please keep them both in case of emergency!");
+		
+		File ticketByte = new File("TicketByte.txt");
+		File ticketSymbol = new File("TicketSymbol.txt");
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream(ticketByte);
+			FileWriter fileWriter = new FileWriter(ticketSymbol);
+			
+			//Writing to a byte file
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getDate().toString().getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getDestination().getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getPlane().getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getPrice().toString().getBytes());
+			
+			//Writing to a symbol file
+			fileWriter.write(MainProgram.currentClient.getTicket().getDate().toString());
+			fileWriter.write(MainProgram.currentClient.getTicket().getDestination());
+			fileWriter.write(MainProgram.currentClient.getTicket().getPlane());
+			fileWriter.write(MainProgram.currentClient.getTicket().getPrice().toString());
+						
+			fileOutputStream.close();
+			fileWriter.close();
+			
+			System.out.println("Your ticket was saved successfully");
+			
+		} catch (IOException e) {
+			System.err.println("File error: " + e);
+		} 
+		return "back";
+				
+		
+	}
+
+}

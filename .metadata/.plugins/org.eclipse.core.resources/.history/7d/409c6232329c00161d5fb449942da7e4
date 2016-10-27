@@ -1,0 +1,25 @@
+package airlineinfo;
+
+import java.io.Serializable;
+import java.util.GregorianCalendar;
+
+/** Interface FlightRelated - describes some things 
+ * related to a specific flight: getter/setter methods
+ * for the properties that are needed when describing a flight
+ * @author Anastasia
+ */
+public interface IFlightRelated {
+	
+	public String getPlane();
+
+	public void setPlane(String plane);
+
+	public GregorianCalendar getDate();
+	
+	public void setDate(GregorianCalendar flightDate);
+	
+	public String getDestination();
+
+	public void setDestination(String destination);
+
+}

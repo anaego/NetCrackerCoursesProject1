@@ -1,6 +1,9 @@
 package airlineinfo;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.util.GregorianCalendar;
+
+import main.IncorrectValueException;
 
 /** Class Ticket - represents tickets for some flight. 
  * properties: price is for the final price for the ticket, with all the factors taken into account; 
@@ -8,12 +11,13 @@ import java.time.LocalDate;
  * Date and plane describe the date of the flight and the plane model. 
  * @author Anastasia
  */
-public class Ticket implements IFlightRelated {
+public class Ticket implements IFlightRelated, Serializable {
 	
-	private double price;
-	private LocalDate date;
+	private Double price;
+	private GregorianCalendar date;
 	private String plane;
 	private boolean paidFor;
+	private String destination;
 	
 	/** static variable for object counting
 	 */
@@ -29,37 +33,45 @@ public class Ticket implements IFlightRelated {
 
 	//getters and setters
 	
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 	
-	public void setPrice(double ticketPrice) {	
-		if (ticketPrice>=0.0d) 
-			price=ticketPrice;
-		else
-			System.out.println("Incorrect value");
+	public void setPrice(Double ticketPrice) {
+		try {
+			price = ticketPrice;
+			if (price <= 0.0d)
+					throw new IncorrectValueException("Incorrect price value." 
+							+ " Please change it.");
+		} catch(IncorrectValueException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
-	public LocalDate getDate() {
+	public GregorianCalendar getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
-		if (date.isAfter(LocalDate.now())) 
-			this.date = date;
-		else
-			System.out.println("Incorrect date value");
+	public void setDate(GregorianCalendar date) {
+		try {
+			this.date=date;
+			if (this.date.before( new GregorianCalendar() ))
+					throw new IncorrectValueException("You can't set an old flight date!" 
+							+ " Please change the flight date.");
+		} catch(IncorrectValueException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public String getPlane() {
-		return plane;
+		if (plane!=null)
+			return plane;
+		else
+			return "unknown plane";
 	}
 
 	public void setPlane(String plane) {
-		if (plane!=null) 
-			this.plane = plane;
-		else
-			System.out.println("Incorrect plane value");
+		this.plane = plane;
 	}
 
 	public boolean isPaidFor() {
@@ -70,9 +82,16 @@ public class Ticket implements IFlightRelated {
 		this.paidFor = paidFor;
 	}
 
+	public String getDestination() {
+		return destination;
+	}
 
-	//Overridden methods (automatically generated)
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
 	
+	//Overridden methods (automatically generated)
+
 	/* Overridden hashCode():
 	 * will always return the same result; 
 	 * @see java.lang.Object#hashCode()

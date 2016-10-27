@@ -1,0 +1,9 @@
+package main;
+
+public class Menu1EmployeeCourse implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		return "back";
+	}
+}

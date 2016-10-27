@@ -1,0 +1,36 @@
+package main;
+
+import java.util.Scanner;
+
+import airlineinfo.Flight;
+import clientinfo.Client;
+
+public class MenuClientNewClient implements IMenuStrategy {
+	
+	public String menuAction(String command) {
+		
+		Scanner scanner = new Scanner(System.in);
+		String answer;		
+		
+		System.out.println("You can order a ticket to one of those flights: ");
+		
+		Integer i = 0;
+		for (Flight flight : MainProgram.flightList) {
+			i++;
+			if (flight.getOrder()!=null) {
+				System.out.println(i.toString() + ". " + flight.getDestination() 
+						+ " on " + flight.getDate());
+			}
+		}
+		
+		answer = scanner.nextLine();
+		Integer chosenFlight = Integer.parseInt(answer);
+		if (chosenFlight < i) {
+			System.out.println("Please enter the correct value");
+			return "newClient";
+		} else {
+			
+		}
+	}
+
+}

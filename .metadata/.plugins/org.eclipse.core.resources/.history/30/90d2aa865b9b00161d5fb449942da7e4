@@ -1,0 +1,169 @@
+package main;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.ListIterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+import airlineinfo.Flight;
+import airlineinfo.Order;
+import airlineinfo.Ticket;
+import clientinfo.Client;
+import clientinfo.Human;
+
+/** Main class of a project, for demonstrating its work 
+ * @author Anastasia
+ */
+public class MainProgram {
+	
+	//Using list!
+	static ArrayList<Client> clientList = new ArrayList<Client>();
+	//Using ListIterator!
+	static ListIterator<Client> listIterator = clientList.listIterator();
+	//We'll need this
+	static Client currentClient;
+
+	
+	
+	public static void main(String[] args) throws IncorrectValueException {
+		
+		//loading objects
+		//Using set!
+		TreeSet<Flight> flightList = new TreeSet<Flight>(Flight.flightDestinationComparator);
+		
+		Flight flight1 = new Flight(new GregorianCalendar(2016, 10, 31, 13, 24, 00), 
+				15, "Boing blabla", "Amsterdam");
+		flightList.add(flight1);
+		
+		Flight flight2 = new Flight(new GregorianCalendar(2016, 11, 15, 06, 15, 00), 
+				10, "NotBoing blabla", "Riga");
+		flightList.add(flight2);
+		
+				
+		Order order1 = new Order(10, 5, LocalDate.of(2016, 10, 25), 2, 5, 3, 3);
+		
+		Order order2 = new Order(11, 6, LocalDate.of(2016, 11, 05), 1, 4, 4, 4);
+		
+		flight1.setOrder(order1);
+		flight2.setOrder(order2);
+		
+			
+		Client client1 = new Client("Petr Petrov");
+		clientList.add(client1);		
+		client1.setLuggageWeight(10);
+		client1.setRegisterFirst(false);
+		
+		Ticket ticket = new Ticket();
+		ticket = client1.orderTicket(order1, flight1);
+		
+		Client client2 = new Client("Ivan Ivanov");
+		clientList.add(client2);	
+		
+		Collections.sort(clientList);	
+		
+		
+		//Initializing stuff for menu
+		Scanner scanner = new Scanner(System.in);
+		
+		String input = "";
+		//Using hashmap!
+		HashMap<String, IMenuStrategy> menuMap = new HashMap<String, IMenuStrategy>();
+		
+		System.out.println("Welcome to the LowCostAirline!");
+		
+		menuMap.put( "back", new MenuStartChooseRole() );
+		menuMap.put( "client", new Menu1ClientCourse() );
+		menuMap.put( "employee", new Menu1EmployeeCourse() );
+		menuMap.put( "saveDecision", new MenuClientSaveDecision() );
+		menuMap.put( "saveTicket", new MenuClientSaveTicket() );
+		
+		MenuSwitch menuSwitch = new MenuSwitch( (IMenuStrategy)menuMap.get("back") );
+		//String answer = "";
+		
+		//Actual menu!
+		while (input!="exit")
+		{
+			input = menuSwitch.menuAction(input);
+			menuSwitch = new MenuSwitch( (IMenuStrategy)menuMap.get(input) );
+			//menuMap.get(input);
+			
+			//input = scanner.nextLine();
+			
+		}
+		
+		/*
+		//We create objects necessary for the successful work: 
+		//a client, their order, the flight they want to get to, and a ticket
+		
+		ArrayList<Client> clientList = new ArrayList<Client>();
+		
+		Client client = new Client("Petr Petrov");
+		clientList.add(client);
+		
+		client.setLuggageWeight(10);
+		client.setRegisterFirst(false);
+					
+		System.out.println("The client is " + client.getName() + " with " 
+				+ client.getLuggageWeight() 
+				+ " kgs of luggage and do they have first priority boarding? " 
+				+ client.getRegisterFirst());
+		
+		
+		HashSet<Flight> flightList = new HashSet<Flight>();
+		
+		Flight flight = new Flight(LocalDate.of(2016, 10, 31), 15, "Boing blabla");
+		flightList.add(flight);
+		
+		System.out.println("The flight is on " + flight.getDate() + ", the plane is " 
+				+ flight.getPlane() + ", there are " + flight.getSeatsLeft() 
+				+ " seat left");
+		
+		
+		Order order = new Order(10, flight, 5, LocalDate.of(2016, 10, 25), 2, 5, 3, 3);
+		
+		
+		Ticket ticket = new Ticket();
+		ticket = client.orderTicket(order, flight);
+		
+		client.payForTicket(ticket);
+		
+		//Object counter through static
+		System.out.println("");
+		Integer objCount = Flight.counter + Order.counter + Ticket.counter + Client.counter 
+				+ Human.counter;
+		System.out.println("The number of objects is: " + objCount.toString());
+
+		*/
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

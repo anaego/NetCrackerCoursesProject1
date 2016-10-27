@@ -1,0 +1,46 @@
+package main;
+
+import java.io.*;
+
+import main.HelpDateFormatter;
+import main.MainProgram;
+import main.MainProgram.MenuBranch;
+
+public class MenuClientSaveTicket implements IMenuStrategy {
+	
+	public MenuBranch menuAction(MenuBranch command) {
+		
+		System.out.println("File will be saved in two variants. Please keep them both in case of emergency!");
+		
+		File ticketByte = new File("TicketByte.txt");
+		File ticketSymbol = new File("TicketSymbol.txt");
+		try {
+			FileOutputStream fileOutputStream = new FileOutputStream(ticketByte);
+			FileWriter fileWriter = new FileWriter(ticketSymbol);
+			
+			//Writing to a byte file
+			fileOutputStream.write(HelpDateFormatter.DateFormatter(MainProgram.currentClient.getTicket().getDate()).getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getDestination().getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getPlane().getBytes());
+			fileOutputStream.write(MainProgram.currentClient.getTicket().getPrice().toString().getBytes());
+			
+			//Writing to a symbol file
+			fileWriter.write(HelpDateFormatter.DateFormatter(MainProgram.currentClient.getTicket().getDate()) + "\n");
+			fileWriter.write(MainProgram.currentClient.getTicket().getDestination() + "\n");
+			fileWriter.write(MainProgram.currentClient.getTicket().getPlane() + "\n");
+			fileWriter.write(MainProgram.currentClient.getTicket().getPrice().toString() + "\n");
+						
+			fileOutputStream.close();
+			fileWriter.close();
+			
+			System.out.println("Your ticket was saved successfully");
+			
+		} catch (IOException e) {
+			System.err.println("File error: " + e);
+		} 
+		return MenuBranch.BACK;
+				
+		
+	}
+
+}

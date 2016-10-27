@@ -1,0 +1,22 @@
+package menu;
+
+import main.MainProgram;
+import main.MainProgram.MenuBranch;
+
+public class MenuSwitch {
+	
+	private IMenuStrategy menuStrategy;
+	
+	public MenuSwitch(IMenuStrategy menuStrategy) {
+		this.menuStrategy = menuStrategy;
+	}
+	
+	public void setMenuAction(IMenuStrategy menuStrategy) {
+		this.menuStrategy = menuStrategy;
+	}
+	
+	public MenuBranch menuAction(MenuBranch command) {
+		return menuStrategy.menuAction(command);
+	}
+
+}

@@ -1,11 +1,13 @@
 package clientinfo;
 
+import java.io.Serializable;
+
 /** Human class that serves for demonstrating inheritance.
  * (because Client class inherits it). 
  * Describes a person with a name.
  * @author Anastasia
  */
-public class Human {
+public class Human implements Serializable {
 	
 	private String name;
 	

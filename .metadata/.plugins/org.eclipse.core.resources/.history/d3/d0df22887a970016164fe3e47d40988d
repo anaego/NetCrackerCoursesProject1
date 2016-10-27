@@ -1,0 +1,14 @@
+package main;
+
+public class IncorrectValueException extends Exception {
+	
+	//Parameterless Constructor
+    public IncorrectValueException() {}
+
+    //Constructor that accepts a message
+    public IncorrectValueException(String message)
+    {
+       super(message);
+    }
+
+}

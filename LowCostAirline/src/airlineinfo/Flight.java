@@ -3,7 +3,7 @@ package airlineinfo;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
 
-import main.IncorrectValueException;
+import etc.IncorrectValueException;
 
 /** Class Flight represents a flight that the client can choose.
  * properties: date - flight date, seatsLeft - how many 

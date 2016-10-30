@@ -23,6 +23,11 @@ public class MenuClientOrderFlight implements IMenuStrategy {
 			System.out.println("You entered something wrong. Please try again");
 			return MenuBranch.ORDERFLIGHT;
 		}
+		if (MainProgram.currentClient.getLuggageWeight()<0)
+		{
+			System.out.println("You entered something wrong. Please try again");
+			return MenuBranch.ORDERFLIGHT;
+		}
 		
 		System.out.println("Do you want to be able to choose your seat? (yes/no)");
 		answer = scanner.nextLine();
@@ -38,7 +43,7 @@ public class MenuClientOrderFlight implements IMenuStrategy {
 		MainProgram.currentFlight.setSeatsLeft(MainProgram.currentFlight.getSeatsLeft()-1);
 		MainProgram.currentClient.orderTicket(MainProgram.currentFlight);
 		
-		System.out.println("Do you want to pay now? (yes/no");
+		System.out.println("Do you want to pay now? (yes/no)");
 		answer = scanner.nextLine();
 		if (answer.compareToIgnoreCase("yes")==0) {			
 			return MenuBranch.PAY;

@@ -17,6 +17,7 @@ import java.util.TreeSet;
 import airlineinfo.Flight;
 import airlineinfo.Order;
 import clientinfo.Client;
+import etc.IncorrectValueException;
 import menu.IMenuStrategy;
 import menu.Menu1ClientCourse;
 import menu.MenuClientNewClient;
@@ -89,6 +90,8 @@ public class MainProgram {
 		
 		/**the list of clients is saved and loaded from file
 		* via serialization
+		* Serialization works: iF a client registers in the system, they stay in the system
+		* because they get saved. But their ticket is notsaved, it's another object, marked transient...
 		*/
 		FileInputStream fis = new FileInputStream("clients.out");
 		ObjectInputStream oin = new ObjectInputStream(fis);
@@ -134,7 +137,6 @@ public class MainProgram {
 		}
 		
 	}
-
 }
 
 

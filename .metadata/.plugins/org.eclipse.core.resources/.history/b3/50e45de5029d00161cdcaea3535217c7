@@ -1,0 +1,163 @@
+package main;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.ListIterator;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+import airlineinfo.Flight;
+import airlineinfo.Order;
+import clientinfo.Client;
+import menu.IMenuStrategy;
+import menu.Menu1ClientCourse;
+import menu.MenuClientNewClient;
+import menu.MenuClientOrderFlight;
+import menu.MenuClientPay;
+import menu.MenuClientSaveDecision;
+import menu.MenuClientSaveTicket;
+import menu.MenuSwitch;
+
+/** Main class of a project, for demonstrating its work 
+ * @author Anastasia
+ */
+public class MainProgram {
+	
+	/**Using list!
+	 */
+	public static ArrayList<Client> clientList = new ArrayList<Client>();
+	/**Using ListIterator!
+	 */
+	public static ListIterator<Client> listIterator = clientList.listIterator();
+	/**Using set!
+	 */
+	public static TreeSet<Flight> flightList = new TreeSet<Flight>(Flight.flightDestinationComparator);
+	//We'll need this
+	public static Client currentClient;
+	public static Flight currentFlight;
+	
+	/**enum for the menu
+	 */
+	public enum MenuBranch {
+	    BACK,
+	    SAVEDECISION,
+	    SAVETICKET,
+	    NEWCLIENT,
+	    ORDERFLIGHT,
+	    PAY
+	}
+	
+		
+	public static void main(String[] args) throws IncorrectValueException, IOException, ClassNotFoundException {
+		
+		/**
+		 * Creating some objects to test the program				
+		 */
+		Flight flight1 = new Flight(new GregorianCalendar(2016, 10, 31, 13, 24, 00), 
+				15, "Boing blabla", "Amsterdam");
+		flightList.add(flight1);
+		
+		Flight flight2 = new Flight(new GregorianCalendar(2016, 11, 15, 06, 15, 00), 
+				10, "NotBoing blabla", "Riga");
+		flightList.add(flight2);
+		
+				
+		Order order1 = new Order(10, 5, LocalDate.of(2016, 10, 25), 2, 5, 3, 3);
+		
+		Order order2 = new Order(11, 6, LocalDate.of(2016, 11, 05), 1, 4, 4, 4);
+		
+		flight1.setOrder(order1);
+		flight2.setOrder(order2);
+		
+		/**I commented it out to show what was serialized in the first place
+		*/
+		/*
+		Client client1 = new Client("Petr Petrov");
+		clientList.add(client1);		
+		
+		Client client2 = new Client("Ivan Ivanov");
+		clientList.add(client2);	
+		*/
+		
+		/**the list of clients is saved and loaded from file
+		* via serialization
+		*/
+		FileInputStream fis = new FileInputStream("clients.out");
+		ObjectInputStream oin = new ObjectInputStream(fis);
+		clientList = (ArrayList<Client>) oin.readObject();
+		
+		Collections.sort(clientList);  
+		
+		
+		
+		//Initializing stuff for menu
+		Scanner scanner = new Scanner(System.in);
+				
+		/** Using hashmap!
+		 */
+		HashMap<MenuBranch, IMenuStrategy> menuMap = new HashMap<MenuBranch, IMenuStrategy>();
+		
+		System.out.println("Welcome to the LowCostAirline!");
+		
+		menuMap.put( MenuBranch.BACK, new Menu1ClientCourse() );
+		menuMap.put( MenuBranch.SAVEDECISION, new MenuClientSaveDecision() );
+		menuMap.put( MenuBranch.SAVETICKET, new MenuClientSaveTicket() );
+		menuMap.put( MenuBranch.NEWCLIENT, new MenuClientNewClient() );
+		menuMap.put( MenuBranch.ORDERFLIGHT, new MenuClientOrderFlight() );
+		menuMap.put( MenuBranch.PAY, new MenuClientPay() );
+		
+		MenuSwitch menuSwitch = new MenuSwitch( (IMenuStrategy)menuMap.get(MenuBranch.BACK) );
+		
+		MenuBranch input = MenuBranch.BACK;
+		/**Actual menu!
+		 * Uses the strategy pattern
+		 */
+		while ( true )
+		{
+			input = menuSwitch.menuAction(input);
+			menuSwitch = new MenuSwitch( (IMenuStrategy)menuMap.get(input) );		
+			
+			//saving the clients list just in case
+			FileOutputStream fos = new FileOutputStream("clients.out");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(clientList);
+			oos.flush();
+			oos.close();
+		}
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

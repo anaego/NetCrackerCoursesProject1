@@ -2,7 +2,7 @@ package menu;
 
 import java.io.*;
 
-import main.HelpDateFormatter;
+import etc.HelpDateFormatter;
 import main.MainProgram;
 import main.MainProgram.MenuBranch;
 

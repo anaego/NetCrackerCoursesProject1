@@ -3,7 +3,7 @@ package airlineinfo;
 import java.io.Serializable;
 import java.util.GregorianCalendar;
 
-import main.IncorrectValueException;
+import etc.IncorrectValueException;
 
 /** Class Ticket - represents tickets for some flight. 
  * properties: price is for the final price for the ticket, with all the factors taken into account; 

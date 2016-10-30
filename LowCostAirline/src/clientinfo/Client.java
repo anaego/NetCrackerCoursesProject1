@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import airlineinfo.Flight;
 import airlineinfo.Ticket;
-import main.IncorrectValueException;
+import etc.IncorrectValueException;
 
 /** Client class - represents a client of the airline.
  * Contains info about their luggage and whether the order the first priority boarding right.

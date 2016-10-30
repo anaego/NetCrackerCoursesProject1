@@ -2,7 +2,7 @@ package menu;
 
 import java.util.Scanner;
 import clientinfo.Client;
-import main.HelpDateFormatter;
+import etc.HelpDateFormatter;
 import main.MainProgram;
 import main.MainProgram.MenuBranch;
 

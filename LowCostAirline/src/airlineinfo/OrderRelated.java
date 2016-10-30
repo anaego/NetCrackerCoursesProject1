@@ -2,7 +2,7 @@ package airlineinfo;
 
 import java.time.LocalDate;
 
-import main.IncorrectValueException;
+import etc.IncorrectValueException;
 
 /** Abstract class that contains some necessary properties/methods 
  * for establishing price coefficients for some order and such.

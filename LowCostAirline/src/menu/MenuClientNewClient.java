@@ -3,7 +3,7 @@ package menu;
 import java.util.Scanner;
 
 import airlineinfo.Flight;
-import main.HelpDateFormatter;
+import etc.HelpDateFormatter;
 import main.MainProgram;
 import main.MainProgram.MenuBranch;
 
@@ -57,6 +57,7 @@ public class MenuClientNewClient implements IMenuStrategy {
 					if (answer.compareToIgnoreCase("yes")==0) {
 						return MenuBranch.ORDERFLIGHT;
 					} else {
+						System.out.println("Apparently you chose no");
 						return MenuBranch.BACK;
 					}					
 				}
